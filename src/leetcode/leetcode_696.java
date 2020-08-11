@@ -16,11 +16,11 @@ public class leetcode_696 {
         int flag = 0;
         if(s.charAt(0) == '0'){
             while(e0<n && s.charAt(e0)=='0') e0++;
-            s1 = e1 = e0;
+//            s1 = e1 = e0;
             flag = 1;
         }else{
             while(e1<n && s.charAt(e1)=='1') e1++;
-            s0 = e0 = e1;
+//            s0 = e0 = e1;
             flag = 0;
         }
         int count = 0;
