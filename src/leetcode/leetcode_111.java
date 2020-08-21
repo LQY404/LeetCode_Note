@@ -13,7 +13,13 @@ public class leetcode_111 {
         int left = minDepth_simple(root.left);
         int right = minDepth_simple(root.right);
 
-        return (root.left==null || root.right==null) ? left+right+1 : Math.min(left, right) + 1;
+//      左右都不为空，很明显取最小的那个
+        if(root.left!=null && root.right!=null){
+            return Math.min(left, right) + 1;
+        }else{//至少有一个为空时，left/right中至少有一个为0，所以返回最大的那个
+            return Math.max(left, right) + 1;
+        }
+//        return (root.left==null || root.right==null) ? left+right+1 : Math.min(left, right) + 1;
     }
 
     public int minDepth(TreeNode root) {
