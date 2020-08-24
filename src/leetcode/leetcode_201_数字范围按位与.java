@@ -13,6 +13,7 @@ public class leetcode_201_数字范围按位与 {
         new leetcode_201_数字范围按位与().rangeBitwiseAnd(m, n);
     }
     public int rangeBitwiseAnd(int m, int n) {
+//        超时
 //        int ans =  2147483647;
 //        for(int i = m;i <= n;i++){
 //            ans = ans & i;
