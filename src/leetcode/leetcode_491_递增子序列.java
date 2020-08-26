@@ -50,25 +50,18 @@ public class leetcode_491_递增子序列 {
             }
             System.out.println();
             while(!ans.isEmpty()){
-                System.out.println("ready add...");
                 LinkedList<Integer> l = new LinkedList<>(ans.remove(0));
-//                if(l.size() == len) continue;
-                int s = ac.get(l) + 1;
-//                if(s == len) continue;
-                int n1 = l.get(l.size()-1);
-
-//                int ds = -1;
-                while(s < len){
-                    System.out.print(l+" test:");
+                int s = ac.get(l) + 1;     //取出最后一个元素在nums中对应的下标的后一个位置
+                int n1 = l.get(l.size()-1); //的值
+                while(s < len){  //从nums[s->len)这一段中，每次加入一个元素，枚举
                     LinkedList<Integer> p = new LinkedList<>(l);
                     int n2 = nums[s++];
                     p.addLast(n2);
-                    System.out.println(n1<=n2 && !ac.containsKey(p));
+                    //如果此时ans[0]中最后一个元素，以及其在nums中对应位置处的后一个元素满足递增，同时ACMap中还未记录该list，则加入新的ans中，同时在ACMap中记录下来
                     if(n1<=n2 && !ac.containsKey(p)){
                         System.out.println("add "+p);
-                        ac.put(p, s-1);
+                        ac.put(p, s-1);  //注意这里是(s-1)！！！因为前面已经让s自加了
                         tem.add(p);
-//                        ds = s;
                     }
 
                 }
